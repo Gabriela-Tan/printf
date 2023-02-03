@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriela <gabriela@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabtan <gabtan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 14:55:47 by gabriela          #+#    #+#             */
-/*   Updated: 2023/02/02 12:57:10 by gabriela         ###   ########.fr       */
+/*   Created: 2023/02/03 12:30:10 by gabtan            #+#    #+#             */
+/*   Updated: 2023/02/03 12:30:14 by gabtan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void	ft_putptr(size_t ptr, int *len)
 
 	base = "0123456789abcdef";
 	i = 0;
-	write(1, "0x", 2);
-	(*len) = (*len) + 2;
-	if (ptr == 0)
+	if (!ptr)
 	{
-		ft_putchar('0', len);
+		write(1, "(nil)", 5);
+		(*len) = (*len) + 5;
 		return ;
 	}
+	write(1, "0x", 2);
+	(*len) = (*len) + 2;
 	while (ptr != 0)
 	{
 		s[i] = base[ptr % 16];
